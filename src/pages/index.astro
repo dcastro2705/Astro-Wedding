@@ -1,0 +1,33 @@
+---
+import "aos/dist/aos.css";
+import Bienvenida from "../sections/bienvenida.astro";
+import Ruta from "../sections/ruta.astro";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<title>Boda Daniel&Maria</title>
+	</head>
+	<body>
+		<audio id="my_audio" autoplay loop>
+			<source src="music/musicfile.ogg" type="audio/ogg">
+			<source src="music/musicfile.mp3" type="audio/mp3">
+		</audio>
+		<div class="scroll-wrapper-y">
+			<Bienvenida />
+			<Ruta />
+		</div>
+
+		
+	</body>
+<script>
+import AOS from "aos";
+AOS.init();
+</script>
+</html>
