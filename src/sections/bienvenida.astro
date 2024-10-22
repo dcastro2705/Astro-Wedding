@@ -1,8 +1,9 @@
 ---
 import Countdown from "./countdown.astro";
 import "../../style.css";
+import "aos/dist/aos.css";
 ---
-<div class="scroll-section absolute">
+<div class="scroll-section relative">
     <video autoplay loop muted id="bgVideo" style="filter: blur(1.2px);">
         <source src="01.mp4" type="video/mp4"/>
     </video>
@@ -25,3 +26,7 @@ import "../../style.css";
     </div>
     </section>
 </div>
+<script>
+    import AOS from "aos";
+    AOS.init();
+</script>
