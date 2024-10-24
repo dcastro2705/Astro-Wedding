@@ -1,24 +1,30 @@
-const countDown = () => {
-  const launchDate = new Date('14 Dec, 2024 22:00:00').getTime();
-  const presentDate = new Date().getTime();
-  const difference = launchDate - presentDate;
 
-  // Get the second, minute,hour, day
-  const second = 1000;
-  const minute = 60 * second;
-  const hour = 60 * minute;
-  const day = 24 * hour;
+const targetDateTime = new Date ('2024-12-14T22:00:00');
 
-  const dayText = Math.floor(difference / day);
-  const hourText = Math.floor((difference % day) / hour);
-  const minuteText = Math.floor((difference % hour) / minute);
-  const secondText = Math.floor((difference % minute) / second);
+function updateCountdown () {
+    const currentDate = new Date ();
 
-  //   add text to the html document or dom
-  document.querySelector('.day').textContent = dayText;
-  document.querySelector('.hour').textContent = hourText;
-  document.querySelector('.minute').textContent = minuteText;
-  document.querySelector('.second').textContent = secondText;
-};
+    const timeRemaining = targetDateTime - currentDate;
 
-setInterval(countDown, 1000);
+    if (timeRemaining <= 0) {
+        document.getElementById('countdown').innerHTML = "Welcome to Course by Sid";
+    } else {
+
+        const days = Math.floor(timeRemaining / (1000*60*60*24));
+        const hours = Math.floor((timeRemaining % (1000*60*60*24)) / (1000*60*60));
+        const minutes = Math.floor((timeRemaining % (1000*60*60)) / (1000*60));
+        const seconds = Math.floor((timeRemaining % (1000*60))/ 1000);
+
+        document.getElementById('countdown').innerHTML = `
+        <span class="stext">${days}</span> day(s) :
+        <span class="stext">${hours}</span> hour(s) :
+        <span class="stext">${minutes}</span> minute(s) :
+        <span class="stext">${seconds}</span> second(s)
+        `;
+
+    }
+}
+
+updateCountdown();
+
+setInterval(updateCountdown, 1000);
