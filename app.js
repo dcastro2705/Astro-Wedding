@@ -19,7 +19,7 @@ function updateCountdown () {
         <span class="stext">${days}</span> day(s) :
         <span class="stext">${hours}</span> hour(s) :
         <span class="stext">${minutes}</span> minute(s) :
-        <span class="stext">${seconds}</span> second(s)
+        
         `;
 
     }
